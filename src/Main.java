@@ -25,46 +25,25 @@ public class Main {
         Course course = new Course("Программирование", "01.01.2001", "10.10.2001", "Троицкий", courseEvents);
         Event event = new Event("Конференция", "20.10.2023", "Конференц-зал", teamMembers);
         course.addEvent(event);
-        Event event2 = new Event("Семинар", "25.10.2023", "Аудитория 101", teamMembers);
-        Event event3 = new Event("Классный час", "25.10.2023", "Аудитория 101", teamMembers);
-        course.addEvent(event2);
 
-        System.out.println("Вызов printStudent\n");
-        student.printStudent();
-        System.out.println();
+        System.out.println("Сейчас вручную создано 1 событие с 2 учасниками. Проверим, так ли это. После создадим еще 2 события в консоли и выведем их количество.");
 
-        double gpa = student.avgGrade();
-        System.out.println("Средний балл студента: " + gpa);
-        System.out.println();
+        System.out.println("\nОбщее количество событий: " + Event.getTotalEvents());
+        System.out.println("Общее количество участников: " + Event.getTotalParticipants());
 
-        System.out.println("Вызов printProject\n");
-        project.printProject();
-        System.out.println();
+        // Создаем несколько событий для тестирования
+        Event event1 = Event.inputFromConsole();
+        Event event2 = Event.inputFromConsole();
 
-        System.out.println("Вызов printProject после добавления 3 студента\n");
-        project.addTeamMember(student3);
-        project.printProject();
-        System.out.println();
+        // Выводим информацию о каждом событии
+        System.out.println("\nИнформация о событии 1:");
+        event1.printEvent();
 
-        System.out.println("Вызов printCourse\n");
-        course.printCourse();
-        System.out.println();
+        System.out.println("\nИнформация о событии 2:");
+        event2.printEvent();
 
-        System.out.println("Вызов printCourse с новым event\n");
-        course.addEvent(event3);
-        course.printCourse();
-        System.out.println();
-
-        System.out.println("Вызов printEvent\n");
-        event.printEvent();
-        System.out.println();
-
-        System.out.println("Вызов grade inputFromConsole\n");
-        Grade grade = Grade.inputFromConsole();
-        grade.printGrade();
-
-        System.out.println("Вызов student inputFromConsole\n");
-        Student studente = Student.inputFromConsole();
-        studente.printStudent();
+        // Выводим общее количество событий и участников
+        System.out.println("\nОбщее количество событий: " + Event.getTotalEvents());
+        System.out.println("Общее количество участников: " + Event.getTotalParticipants());
     }
 }

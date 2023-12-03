@@ -7,15 +7,24 @@ class Event {
     private String location;
     private ArrayList<Student> eventMembers;
 
+    // ПОЛЕ ДЛЯ ОТСЛЕЖИВАНИЯ КОЛ-ВА ИВЕНТОВ
+    private static int totalEvents = 0;
+    private static int totalParticipants = 0;
+
+
     public Event(String eventName, String date, String location, ArrayList<Student> eventMembers) {
         this.eventName = eventName;
         this.date = date;
         this.location = location;
         this.eventMembers = eventMembers;
+
+        totalEvents++;
+        totalParticipants += eventMembers.size();
     }
 
     public void addParticipant(Student student) {
         eventMembers.add(student);
+        totalParticipants++;
     }
 
     public void printEvent() {
@@ -51,6 +60,9 @@ class Event {
         return new Event(eventName, date, location, eventMembers);
     }
 
+    //СТАТИЧЕСКИЙ МЕТОД ДЛЯ ПОЛУЧЕНИЯ ОБЩЕГО КОЛ-ВА СОЗДАННЫХ СОБЫТИЙ
+    public static int getTotalEvents() {return totalEvents;}
+    public static int getTotalParticipants() {return totalParticipants;}
     public String getEventName() {
         return eventName;
     }
