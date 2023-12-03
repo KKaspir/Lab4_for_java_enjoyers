@@ -70,6 +70,18 @@ class Student {
         return new Student(firstName, lastName, dateOfBirth, studentID, email, grades);
     }
 
+    public String getFullName() {
+        return this.firstName + " " + this.lastName;
+    }
+
+    public String getEmailDomain() {
+        int atIndex = this.email.indexOf('@');
+        if (atIndex != -1) {
+            return this.email.substring(atIndex + 1);
+        }
+        return "";
+    }
+
     public String getFirstName() {
         return firstName;
     }

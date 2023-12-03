@@ -7,7 +7,6 @@ class Event {
     private String location;
     private ArrayList<Student> eventMembers;
 
-    // ПОЛЕ ДЛЯ ОТСЛЕЖИВАНИЯ КОЛ-ВА ИВЕНТОВ
     private static int totalEvents = 0;
     private static int totalParticipants = 0;
 
@@ -60,7 +59,7 @@ class Event {
         return new Event(eventName, date, location, eventMembers);
     }
 
-    //СТАТИЧЕСКИЙ МЕТОД ДЛЯ ПОЛУЧЕНИЯ ОБЩЕГО КОЛ-ВА СОЗДАННЫХ СОБЫТИЙ
+    //Статический метод для счета создаваемых событий
     public static int getTotalEvents() {return totalEvents;}
     public static int getTotalParticipants() {return totalParticipants;}
     public String getEventName() {
